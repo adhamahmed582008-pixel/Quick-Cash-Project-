@@ -44,7 +44,7 @@ public static void main(String[] args) {
     System.out.println("===== WELCOME TO QUICK CASH =====");
     while (running) {
         System.out.println("\n Welcome to the main menu ");
-        System.out.println("1) Sign in ");
+        System.out.println("1) Sign up ");
         System.out.println("2) Login for Users ");
         System.out.println("3) Login as Admin ");
         System.out.println("4) Exit ");
