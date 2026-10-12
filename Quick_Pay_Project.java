@@ -1,13 +1,13 @@
 import java.util.*;
-public class Quick_Cash_Project{
-    //1) MAIN COMPONENTS 
-    static Scanner input = new Scanner(System.in);
-    //======================================================================================//
+public class Quick_Pay_Project{
+   static Scanner input = new Scanner(System.in);
+public static void main(String[] args) {   
+//======================================================================================//
                                     //MAIN PROGRAM//
-    //======================================================================================//
-public static void main(String[] args) {
-    System.out.println("===== WELCOME TO QUICK CASH =====");
+//======================================================================================//
+
     }
+
 // ==========================================================
 //validation 
 // ==========================================================
@@ -27,7 +27,7 @@ static boolean isDigitsOnly(String text)
     }
     return true;
 }
-//2) at least 3 letter check 
+//2) at least 3 letter check for name 
 static boolean isValidName(String name)
 {
     if (name.length()<3){
@@ -59,12 +59,12 @@ static boolean isValidEmail(String email )
 //4) phone number is 11 digits and start with 01
 static boolean isValidPhone (String Phones)
 {
-    return phones.length()==11 && isDigitsOnly(Phones) && phones.startWith("01");
+    return Phones.length()==11 && isDigitsOnly(Phones) && Phones.startsWith("01");
 }
-//5) PASSWORD IS 4 OR MORE LETTERS OR NUMBERS AND DONT CONTAIN ANY SPACES 
+//5) PASSWORD IS 5 OR MORE LETTERS OR NUMBERS AND DONT CONTAIN ANY SPACES 
 static boolean isValidPassword (String Passwords)
 {
-   return Passwords.length()>=4 && !Passwords.contains(" ");
+   return Passwords.length()>=5 && !Passwords.contains(" ");
 }
 //6) METHOD THAT READ STRING FOR ALL PROGRAM (USE ANY WHERE NEED STRING INPUT )
 // message is any question you want to ask 
@@ -83,8 +83,76 @@ static int ReadNumber (String message)
         input.nextLine(); 
         return number;
 }
-
-
-
+//8) METHOD CHECK THAT VALUE IS MORE THAN ZERO 
+static boolean isValidAmount (long amount)
+{
+    if (amount > 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+//9) METHOD FOR CHECKING THAT TWO USERS CANT LOGIN WITH SAME EMAIL OR PHONE NUMBER
+static boolean isAlreadyExist (String[] array , String targetvalue)
+{
+    for (int i = 0; i < array.length; i++)
+    {
+       if (array[i].equalsIgnoreCase(targetvalue))
+       {
+        return true; // REPETED 
+       }
+    }
+    return false ; // NOT REPETED 
+}
+//10) METHOD PREVENT REPEATED PEOPLE IN FAVORITE OF SINGLE USER 
+static boolean isAlreadyFavorite (String[] favoritelist , String contact )
+{
+   for (int i =0; i < favoritelist.length; i++) 
+   {
+    if (favoritelist[i].equalsIgnoreCase(contact))
+    {
+        return true; // REPETED 
+    }
+   }
+   return false ; // NOT REPETED
+}
+//11) SENDER AND RECIVER ARE NOT THE SAME 
+static boolean isValidSenderAndReciver (String senderphone , String recipientphone )
+{
+    if(senderphone.equalsIgnoreCase(recipientphone))
+    {
+        return false; // SENDER AND USER ARE THE SAME 
+    }
+    else 
+    {
+        return true; // SENDER AND USER ARENOT THE SAME 
+    }
+}
+//12) CHECK IF USER IS BLOCKED OR NOT 
+static boolean isAccountActive (String status)
+{
+    if(status.equalsIgnoreCase("active"))
+    {
+        return true; // NOT BLOCKED 
+    }
+    else{
+        return false; // BLOCKED 
+    }
+}
+//13) ENOUGH BALANCE
+static boolean HasEnoughBalance (long CurrentBalance , long TransactionAmount ) 
+{
+    if (CurrentBalance>=TransactionAmount)
+    {
+        return true;
+    }
+    else
+    {
+        return false; 
+    }
 }
 
+}
